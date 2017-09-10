@@ -10,7 +10,7 @@
         :duration="notice.duration"
         :styles="notice.styles"
         :closable="notice.closable"
-        :transition="notice.transition"
+        :transition="transitionName"
         :on-close="notice.onClose"
       ></Notice>
     </span>
@@ -36,6 +36,10 @@
         type: String,
         default: 'rc-notification'
       },
+      transitionName: {
+        type: String,
+        default: 'rc-notification-fade'
+      },
       styles: {
         type: Object,
         default: () => {
@@ -50,9 +54,6 @@
       return {
         notices: []
       }
-    },
-    updated () {
-      console.log(this.notices)
     },
     methods: {
       add (notice) {
